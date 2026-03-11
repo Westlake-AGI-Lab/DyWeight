@@ -1,0 +1,61 @@
+outputs/
+
+# ----- Python -----
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.so
+.Python
+.pytest_cache/
+.ipynb_checkpoints/
+
+# ----- Model weights & checkpoints -----
+*.ckpt
+*.pth
+*.pkl
+*.pt
+*.safetensors
+*.bin
+*.whl
+
+# ----- Large data files -----
+*.hdf5
+*.h5
+*.npz
+*.npy
+
+# ----- Generated outputs -----
+samples/
+logs/
+src/
+
+# ----- Datasets -----
+datasets/
+data/
+
+# ----- Caches -----
+.cache/
+cache/
+hf_cache/
+openclip_cache/
+
+# ----- Third-party model repos -----
+taming-transformers/
+pretrained/
+checkpoints/
+
+# ----- Temp & OS files -----
+*.tmp
+*.temp
+.DS_Store
+Thumbs.db
+
+# ----- Virtual environments -----
+.env
+.venv/
+env/
+venv/
+
+# ----- Editor -----
+.vscode/

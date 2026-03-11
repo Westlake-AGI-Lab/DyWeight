@@ -1,0 +1,32 @@
+model_id: path_to/FLUX.1-dev
+output_dir: outputs/training/
+mixed_precision: bf16
+
+dataset_path: dyweight_flux/dataset/train/train2014_N5000.jsonl
+train_batch_size: 1
+dataloader_num_workers: 4
+
+gradient_accumulation_steps: 2
+optimizer: adamw
+weight_decay: 5e-2
+max_grad_norm: 1.0
+
+loss: mse
+learning_rate: 1e-3
+lr_scheduler_type: cosine
+lr_warmup_steps: 0
+lr_num_cycles: 1
+lr_power: 1
+
+num_train_epochs: 1
+ckpt_save_steps: 128
+visual_steps: 8
+
+height: 512
+width: 512
+teacher_steps: 28
+student_steps: 7
+
+dyweight_init: euler
+dyweight_window: 2
+dyweight_exp_name: mscoco5k
