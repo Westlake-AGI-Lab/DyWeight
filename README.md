@@ -1,9 +1,13 @@
 <p align="center">
   <h1 align="center">
   DyWeight: Dynamic Gradient Weighting for Few-Step Diffusion Sampling
+
+[![arXiv](https://img.shields.io/badge/arxiv-DyWeight-b31b1b.svg)](https://arxiv.org/abs/2603.11607)
+
   </h1>
   <img src="assets/teaser.jpg">
 </p>
+
 
 ## ✨ Highlights
 
@@ -145,18 +149,18 @@ This repository is built upon the following codebases. We thank the authors for 
 - [**diff-sampler**](https://github.com/zju-pi/diff-sampler/) (AMED) — Open-source toolbox for fast sampling of diffusion models
 - [**EPD**](https://github.com/BeierZhu/EPD/tree/EPD-Solver) — Distilling parallel gradients for fast ODE solvers of diffusion models
 
-<!-- ## Supported Datasets
+## 📝 Citation
 
-- CIFAR-10
-- FFHQ
-- AFHQv2  
-- ImageNet-64
-- LSUN Bedroom (LDM)
-- MS-COCO (Stable Diffusion, FLUX.1-dev)
+If you find our work useful, please cite our related paper:
 
-## Hardware Requirements
-
-- **RTX 4090**: CIFAR-10, FFHQ, AFHQv2, ImageNet-64
-- **A100/H100**: LSUN Bedroom (LDM), Stable Diffusion, FLUX.1-dev
-
-Adjust `--batch-gpu` according to your GPU memory. -->
+```bibtex
+@misc{zhao2026dyweight,
+      title={DyWeight: Dynamic Gradient Weighting for Few-Step Diffusion Sampling}, 
+      author={Tong Zhao and Mingkun Lei and Liangyu Yuan and Yanming Yang and Chenxi Song and Yang Wang and Beier Zhu and Chi Zhang},
+      year={2026},
+      eprint={2603.11607},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2603.11607}, 
+}
+```
