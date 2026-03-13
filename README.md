@@ -1,25 +1,33 @@
+<div align="center">
+
+# DyWeight: Dynamic Gradient Weighting for Few-Step Diffusion Sampling
+
+[![arXiv](https://img.shields.io/badge/arXiv-2603.11607-b31b1b.svg)](https://arxiv.org/abs/2603.11607)
+
 <p align="center">
-  <h1 align="center">
-  DyWeight: Dynamic Gradient Weighting for Few-Step Diffusion Sampling
 
-[![arXiv](https://img.shields.io/badge/arxiv-DyWeight-b31b1b.svg)](https://arxiv.org/abs/2603.11607)
+[Tong Zhao](https://tongzhao1030.github.io/)<sup>1,2,⚖️</sup>, [Mingkun Lei](https://mingkunlei.github.io/en/)<sup>2,⚖️</sup>,  Liangyu Yuan<sup>3,⚖️</sup>, <br>  [Yanming Yang](https://2hitee.github.io/)<sup>2</sup>,  [Chenxi Song](https://chenxi-song.github.io/)<sup>2</sup>, Yang Wang<sup>2</sup>, [Beier Zhu](https://beierzhu.github.io/)<sup>4</sup>, [Chi Zhang](https://icoz69.github.io/)<sup>2,📧</sup>
 
-  </h1>
-  <img src="assets/teaser.jpg">
+<sup>1</sup>Zhejiang University, <sup>2</sup>AGI Lab, Westlake University, <sup>3</sup>Tongji University, <sup>4</sup>University of Science and Technology of China
+
+⚖️ Equal contribution · 📧 Corresponding author <br> Contact: [zhaotong68@westlake.edu.cn](mailto:zhaotong68@westlake.edu.cn), [chizhang@westlake.edu.cn](mailto:chizhang@westlake.edu.cn)
+
 </p>
 
+<img src="assets/teaser.jpg" width="90%">
+
+</div>
 
 ## ✨ Highlights
 
-- Supports both classic benchmarks and modern latent T2I models (**Stable Diffusion / FLUX.1-dev**)
+- 🚀 **Few-step diffusion sampling** with superior stability and visual fidelity
+- 🧠 **Dynamic gradient weighting** that adaptively aggregates historical gradients and implicitly scales the effective time step size
+- ⚡ **Lightweight learned solver** — no modification to the base diffusion model
+- 🎯 Compatible with both **pixel-space models** and **latent-space models**
 
-- Lightweight learned solver weights (no modification to base diffusion model)
-
-## 📰 News and Update
+## 📰 News
 - **[2026.3.12]** 🔥 We release the code.
 
-## Introduction
-Diffusion Models (DMs) have achieved state-of-the-art generative performance across multiple modalities, yet their sampling process remains prohibitively slow due to the need for hundreds of number of function evaluations (NFEs). Recent progress in multi-step ODE solvers has greatly improved efficiency by reusing historical gradients, but existing methods rely on handcrafted coefficients that fail to adapt to the non-stationary dynamics of diffusion sampling. To address this limitation, we propose *Dy*namic Gradient *Weight*ing (DyWeight), a lightweight, learning-based multi-step solver that adaptively re-weights historical gradients at each timestep. Through a teacher–student distillation framework, **DyWeight** learns time-varying weighting parameters that capture the evolving denoising behavior without modifying the diffusion model itself. Moreover, we introduce a time calibration mechanism, comprising time shifting and time scaling, to dynamically align the solver’s numerical trajectory with the model’s internal denoising dynamics under large integration steps. Extensive experiments on CIFAR-10, FFHQ, AFHQv2, ImageNet64, LSUN-Bedroom, Stable Diffusion and FLUX.1-dev demonstrate that **DyWeight** achieves superior visual fidelity and stability with significantly fewer function evaluations, establishing a new state-of-the-art among efficient diffusion solvers.
 
 ## 🎯 How to Use
 
@@ -30,14 +38,19 @@ Official implementation of DyWeight, a learned sampling method for diffusion mod
 We provide support for large-scale latent diffusion models to validate the transferability and practical effectiveness of DyWeight.  
 For FLUX.1-dev usage details (setup, scripts, and notes), please refer to [`dyweight_flux/flux.md`](dyweight_flux/flux.md).
 
-### Installation
+## ⚡ Quick Start
 
 ```bash
+git clone https://github.com/Westlake-AGI-Lab/DyWeight.git
+cd DyWeight
+
 conda env create -f environment.yml
 conda activate DyWeight
+
+bash run.sh 
 ```
 
-### Project Structure (Recommended)
+## Project Structure (Recommended)
 
 We recommend organizing project files into the following directory structure for training, sampling, and evaluation:
 
@@ -154,7 +167,7 @@ This repository is built upon the following codebases. We thank the authors for 
 If you find our work useful, please cite our related paper:
 
 ```bibtex
-@misc{zhao2026dyweight,
+@article{zhao2026dyweight,
       title={DyWeight: Dynamic Gradient Weighting for Few-Step Diffusion Sampling}, 
       author={Tong Zhao and Mingkun Lei and Liangyu Yuan and Yanming Yang and Chenxi Song and Yang Wang and Beier Zhu and Chi Zhang},
       year={2026},
